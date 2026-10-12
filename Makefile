@@ -1,7 +1,9 @@
 CXX ?= g++
 
 EXTRA_FLAGS =
-LUA_PKG ?= $(shell pkg-config --exists 'lua5.4 >= 5.4' && echo lua5.4 || echo lua)
+# The Lua that Hyprland itself links (scripts/detect-lua-pkg.sh), not merely
+# the first one installed.
+LUA_PKG ?= $(shell sh scripts/detect-lua-pkg.sh)
 VERSION_HEADER = .build/PluginVersion.hpp
 VERSION_SCRIPT = scripts/generate-plugin-version.sh
 
