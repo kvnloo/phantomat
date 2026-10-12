@@ -138,6 +138,7 @@ float         getCanvasGridOpacity();
 int           getCanvasGridStyle();
 float         getCanvasGridDotSize();
 float         getCanvasBackgroundDim();
+bool          getCanvasBottomLayers();
 bool          getCanvasViewportEnabled();
 int           getCanvasViewportWidth();
 int           getCanvasViewportRounding();

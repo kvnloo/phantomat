@@ -7367,6 +7367,19 @@ void CScrollOverview::renderWorkspaceOutline(PHLMONITOR monitor, size_t workspac
     g_pHyprRenderer->m_renderPass.add(makeUnique<CBorderPassElement>(border));
 }
 
+void CScrollOverview::renderCanvasBottomLayers(PHLMONITOR monitor, const Time::steady_tp& now) {
+    if (!isCanvasDesktop() || !monitor || !ScrollOverview::Config::getCanvasBottomLayers())
+        return;
+
+    for (auto const& ls : monitor->m_layerSurfaceLayers[ZWLR_LAYER_SHELL_V1_LAYER_BOTTOM]) {
+        const auto LAYER = ls.lock();
+        if (!Desktop::View::validMapped(LAYER))
+            continue;
+
+        g_pHyprRenderer->renderLayer(LAYER, monitor, now);
+    }
+}
+
 void CScrollOverview::renderCanvasBackgroundDim(PHLMONITOR monitor) {
     if (!isCanvasDesktop() || !monitor)
         return;
@@ -9104,6 +9117,7 @@ void CScrollOverview::render() {
     Event::bus()->m_events.render.stage.emit(RENDER_POST_WALLPAPER);
 
     if (isCanvasDesktop()) {
+        renderCanvasBottomLayers(MONITOR, NOW);
         renderCanvasBackgroundDim(MONITOR);
         renderCanvasGrid(MONITOR, ACTIVEIDX, PITCH, SCALE);
         OverviewRender::flushPass(MONITOR);

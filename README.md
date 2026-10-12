@@ -173,6 +173,7 @@ Everything can also be set in `~/.config/hypr/spatialoverview.lua` (then
 | `distortion.transition_power` | When the lens eases in during the zoom animation (1 follows the zoom) |
 | `canvas.grid_*` | Shared snap/render spacing, width, opacity, line/dot style, and dot diameter |
 | `canvas.background_dim` | Dark overlay behind the grid and windows in navigation mode |
+| `canvas.bottom_layers` | Draw bottom-level layer surfaces (live wallpapers, desktop widgets) behind the canvas desktop; off restores the old behaviour |
 | `canvas.snap_enabled` / `snap_size` | Snap free window placement to the canvas grid, and its step in pixels |
 | `canvas.remember_layout` | Remember window positions and cameras across restarts and reopenings |
 | `navigator.enabled` | Type-to-search palette in the zoomed-out canvas |

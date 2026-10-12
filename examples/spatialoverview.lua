@@ -108,6 +108,7 @@ hl.config({
         grid_style = 1, -- 0 lines, 1 dots
         grid_dot_size = 3.2,
         background_dim = 0.35,
+        bottom_layers = true,
         viewport_enabled = false,
         viewport_width = 3,
         viewport_rounding = 18,

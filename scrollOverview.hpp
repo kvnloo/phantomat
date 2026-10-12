@@ -149,6 +149,7 @@ class CScrollOverview : public IOverview {
     void   renderWorkspaceBackground(PHLMONITOR monitor, size_t workspaceIdx, size_t activeIdx, float workspacePitch, float renderScale, int wallpaperMode, const Time::steady_tp& now);
     void   renderWorkspaceLive(PHLMONITOR monitor, size_t workspaceIdx, size_t activeIdx, float workspacePitch, float renderScale, int wallpaperMode, const Time::steady_tp& now);
     void   renderWorkspaceOutline(PHLMONITOR monitor, size_t workspaceIdx, size_t activeIdx, float workspacePitch, float renderScale);
+    void   renderCanvasBottomLayers(PHLMONITOR monitor, const Time::steady_tp& now);
     void   renderCanvasBackgroundDim(PHLMONITOR monitor);
     void   renderCanvasGrid(PHLMONITOR monitor, size_t activeIdx, float workspacePitch, float renderScale);
     void   renderCanvasMinimap(PHLMONITOR monitor);

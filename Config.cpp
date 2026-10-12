@@ -427,6 +427,9 @@ static void registerConfigValues() {
                                   makeShared<CFloatValue>("plugin:spatialoverview:canvas:background_dim", "navigation-mode canvas background dimming", 0.35F,
                                                           SFloatValueOptions{.min = 0.F, .max = 0.9F}));
     HyprlandAPI::addConfigValueV2(SCROLLOVERVIEW_HANDLE,
+                                  makeShared<CBoolValue>("plugin:spatialoverview:canvas:bottom_layers",
+                                                         "draw bottom layer surfaces (live wallpapers, desktop widgets) behind the canvas desktop", true));
+    HyprlandAPI::addConfigValueV2(SCROLLOVERVIEW_HANDLE,
                                   makeShared<CBoolValue>("plugin:spatialoverview:canvas:viewport_enabled", "draw the selected screen viewport", true));
     HyprlandAPI::addConfigValueV2(SCROLLOVERVIEW_HANDLE,
                                   makeShared<CIntValue>("plugin:spatialoverview:canvas:viewport_width", "viewport border width", 3,
@@ -758,6 +761,10 @@ float getCanvasGridDotSize() {
 
 float getCanvasBackgroundDim() {
     return std::clamp(getValue<float>("plugin:spatialoverview:canvas:background_dim"), 0.F, 0.9F);
+}
+
+bool getCanvasBottomLayers() {
+    return getValue<bool>("plugin:spatialoverview:canvas:bottom_layers");
 }
 
 bool getCanvasViewportEnabled() {
